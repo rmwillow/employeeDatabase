@@ -102,3 +102,48 @@ dist
 
 # TernJS port file
 .tern-port
+
+
+node_modules/
+
+
+# Created by https://www.toptal.com/developers/gitignore/api/macos
+# Edit at https://www.toptal.com/developers/gitignore?templates=macos
+
+### macOS ###
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+.idea/*
+idea/*
+.idea
+# Icon must end with two \r
+Icon
+node_modules
+node_modules
+**/node_modules
+node_modules/
+
+
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# End of https://www.toptal.com/developers/gitignore/api/macos
