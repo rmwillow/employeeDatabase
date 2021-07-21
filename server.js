@@ -18,10 +18,10 @@ connection.connect((err) => {
   );
   console.log(``);
   console.log(
-    chalk.blueBright(figlet.textSync('Employee Tracker'))
+    chalk.cyan(figlet.textSync('Employee Tracker'))
   );
   console.log(``);
-  console.log(`                                                         ` + chalk.whiteBright.bgCyan.bold('Created By: Rachel McGrath'));
+  console.log(`                                                         ` + chalk.cyan.bold('Created By: Rachel McGrath'));
   console.log(
     chalk.green(
       `====================================================================================`
