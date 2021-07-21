@@ -8,105 +8,102 @@ const remove = require('./utils/remove');
 const update = require('./utils/update');
 const figlet = require('figlet');
 
-// Connecting to DB
-connection.connect((err) => {
-  if (err) throw err;
-  console.log(
-    chalk.greenBright(
-      `====================================================================================`
-    )
-  );
-  console.log(``);
-  console.log(
-    chalk.cyan(figlet.textSync('Employee Tracker'))
-  );
-  console.log(``);
-  console.log(`                                                         ` + chalk.cyan.bold('Created By: Rachel McGrath'));
-  console.log(
-    chalk.green(
-      `====================================================================================`
-    )
-  );
-  init();
-});
-
-
-// Set Menu Options
-const menuOptions = [
-    'View All Employees',
-    'View All Roles',
-    'View Department Budget',
-    'View All Employees By Department',
-    'Update Employee Role',
-    'Update Employee Manager',
-    'Add Employee',
-    'Add Role',
-    'Add Department',
-    'Remove Employee',
-    'Remove Role',
-    'Remove Department',
-    'Exit'
-  ];
-  
-  // Start Inquirer
-  const init = () => {
+// Database Connect and Starter Title
+connection.connect((error) => {
+    if (error) throw error;
+    console.log(chalk.yellow.bold(`====================================================================================`));
     console.log(``);
-    inquirer
-      .prompt([
+    console.log(chalk.cyan(figlet.textSync('Employee Database')));
+    console.log(``);
+    console.log(`                                `+ chalk.cyan.bold('Created By: Rachel McGrath'));
+    console.log(``);
+    console.log(chalk.yellow.bold(`====================================================================================`));
+    promptUser();
+  });
+  
+  // Prompt User for Choices
+  const promptUser = () => {
+    inquirer.prompt([
         {
-          name: 'selection',
+          name: 'choices',
           type: 'list',
-          message: 'What would you like to do?',
-          choices: menuOptions
+          message: 'Please select an option:',
+          choices: [
+            'View All Employees',
+            'View All Roles',
+            'View All Departments',
+            'View All Employees By Department',
+            'View Department Budgets',
+            'Update Employee Role',
+            'Update Employee Manager',
+            'Add Employee',
+            'Add Role',
+            'Add Department',
+            'Remove Employee',
+            'Remove Role',
+            'Remove Department',
+            'Exit'
+            ]
         }
       ])
-      .then((answer) => {
-        switch (answer.selection) {
-          case 'View All Employees':
-            view.viewAllEmployees();
-            break;
-          case 'View All Employees By Manager':
-            view.viewEmployeesByManager();
-            break;
-          case 'View All Employees By Department':
-            view.viewEmployeesByDept();
-            break;
-          case 'Add Employee':
-            add.addEmployee();
-            break;
-          case 'Remove Employee':
-            remove.removeEmployee();
-            break;
-          case 'Update Employee Role':
-            update.updateEmployeeRole();
-            break;
-          case 'Update Employee Manager':
-            update.updateEmployeeManager();
-            break;
-          case 'View All Roles':
-            view.viewAllRoles();
-            break;
-          case 'Add Role':
-            add.addRole();
-            break;
-          case 'Remove Role':
-            remove.removeRole();
-            break;
-          case 'Add Department':
-            add.addDept();
-            break;
-          case 'View Department Budget':
-            view.viewDeptBudget();
-            break;
-          case 'Remove Department':
-            remove.removeDept();
-            break;
-          case 'Exit':
-            connection.end();
-            break;
+      .then((answers) => {
+        const {choices} = answers;
+  
+          if (choices === 'View All Employees') {
+              viewAllEmployees();
+          }
+  
+          if (choices === 'View All Departments') {
+            viewAllDepartments();
         }
-      });
+  
+          if (choices === 'View All Employees By Department') {
+              viewEmployeesByDepartment();
+          }
+  
+          if (choices === 'Add Employee') {
+              addEmployee();
+          }
+  
+          if (choices === 'Remove Employee') {
+              removeEmployee();
+          }
+  
+          if (choices === 'Update Employee Role') {
+              updateEmployeeRole();
+          }
+  
+          if (choices === 'Update Employee Manager') {
+              updateEmployeeManager();
+          }
+  
+          if (choices === 'View All Roles') {
+              viewAllRoles();
+          }
+  
+          if (choices === 'Add Role') {
+              addRole();
+          }
+  
+          if (choices === 'Remove Role') {
+              removeRole();
+          }
+  
+          if (choices === 'Add Department') {
+              addDepartment();
+          }
+  
+          if (choices === 'View Department Budgets') {
+              viewDepartmentBudget();
+          }
+  
+          if (choices === 'Remove Department') {
+              removeDepartment();
+          }
+  
+          if (choices === 'Exit') {
+              connection.end();
+          }
+    });
   };
   
-  // Export init function to be used in utils
-  exports.init = init;
