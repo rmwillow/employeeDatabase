@@ -1,4 +1,4 @@
-// Dependencies
+// Require Dependencies
 
 const inquirer = require('inquirer');
 
