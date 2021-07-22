@@ -1,11 +1,7 @@
 // Dependencies
-const connection = require('./javascript/config');
+const connection = require('./config/connection');
 const inquirer = require('inquirer');
 const chalk = require('chalk');
-const view = require('./javascript/view');
-const add = require('./javascript/add');
-const remove = require('./javascript/remove');
-const update = require('./javascript/update');
 const figlet = require('figlet');
 
 // Database Connect and Starter Title
