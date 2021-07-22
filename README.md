@@ -7,4 +7,4 @@ npm i nodemon
 npm i validator
 npm i express
 npm i dotenv@8.2.0
-npm i console.table
+npm i mysql2

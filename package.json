@@ -1,27 +1,11 @@
 {
-  "dependencies": {
-    "chalk": "^4.1.1",
-    "console.table": "^0.10.0",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "figlet": "^1.5.0",
-    "inquirer": "^8.1.2",
-    "mysql": "^2.18.1",
-    "mysql2": "^2.2.5",
-    "nodemon": "^2.0.12",
-    "validator": "^13.6.0"
-  },
   "name": "employeedatabase",
-  "description": "",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "npm i inquirer npm i console.table npm i figlet npm i chalk npm i nodemon npm i validator npm i express npm i dotenv@8.2.0 npm i mysql2",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "migrate": "mysql db/employees.db < db/schema.sql",
-    "seed": "mysql db/employees.db < db/seeds.sql",
-    "db": "mysql db/employees.db",
-    "watch": "nodemon server.js",
-    "start": "node server.js"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -33,5 +17,16 @@
   "bugs": {
     "url": "https://github.com/rmwillow/employeeDatabase/issues"
   },
-  "homepage": "https://github.com/rmwillow/employeeDatabase#readme"
+  "homepage": "https://github.com/rmwillow/employeeDatabase#readme",
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "console.table": "^0.10.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "figlet": "^1.5.0",
+    "inquirer": "^8.1.2",
+    "mysql2": "^2.2.5",
+    "nodemon": "^2.0.12",
+    "validator": "^13.6.0"
+  }
 }
