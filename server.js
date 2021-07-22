@@ -11,13 +11,13 @@ const figlet = require('figlet');
 // Database Connect and Starter Title
 connection.connect((error) => {
     if (error) throw error;
-    console.log(chalk.yellow.bold(`====================================================================================`));
+    console.log(chalk.green.bold(`====================================================================================`));
     console.log(``);
     console.log(chalk.cyan(figlet.textSync('Employee Database')));
     console.log(``);
     console.log(`                                `+ chalk.cyan.bold('Created By: Rachel McGrath'));
     console.log(``);
-    console.log(chalk.yellow.bold(`====================================================================================`));
+    console.log(chalk.green.bold(`====================================================================================`));
     promptUser();
   });
   
@@ -123,27 +123,27 @@ const viewAllEmployees = () => {
                     ORDER BY employee.id ASC`;
     connection.promise().query(sql, (error, response) => {
       if (error) throw error;
-      console.log(chalk.yellow.bold(`====================================================================================`));
-      console.log(`                              ` + chalk.green.bold(`Current Employees:`));
-      console.log(chalk.yellow.bold(`====================================================================================`));
+      console.log(chalk.green.bold(`====================================================================================`));
+      console.log(`                              ` + chalk.cyan.bold(`Current Employees:`));
+      console.log(chalk.green.bold(`====================================================================================`));
       console.table(response);
-      console.log(chalk.yellow.bold(`====================================================================================`));
+      console.log(chalk.green.bold(`====================================================================================`));
       promptUser();
     });
   };
   
   // View all Roles
   const viewAllRoles = () => {
-    console.log(chalk.yellow.bold(`====================================================================================`));
-    console.log(`                              ` + chalk.green.bold(`Current Employee Roles:`));
-    console.log(chalk.yellow.bold(`====================================================================================`));
+    console.log(chalk.green.bold(`====================================================================================`));
+    console.log(`                              ` + chalk.cyan.bold(`Current Employee Roles:`));
+    console.log(chalk.green.bold(`====================================================================================`));
     const sql =     `SELECT role.id, role.title, department.department_name AS department
                     FROM role
                     INNER JOIN department ON role.department_id = department.id`;
     connection.promise().query(sql, (error, response) => {
       if (error) throw error;
         response.forEach((role) => {console.log(role.title);});
-        console.log(chalk.yellow.bold(`====================================================================================`));
+        console.log(chalk.green.bold(`====================================================================================`));
         promptUser();
     });
   };
@@ -153,11 +153,11 @@ const viewAllEmployees = () => {
     const sql =   `SELECT department.id AS id, department.department_name AS department FROM department`; 
     connection.promise().query(sql, (error, response) => {
       if (error) throw error;
-      console.log(chalk.yellow.bold(`====================================================================================`));
-      console.log(`                              ` + chalk.green.bold(`All Departments:`));
-      console.log(chalk.yellow.bold(`====================================================================================`));
+      console.log(chalk.green.bold(`====================================================================================`));
+      console.log(`                              ` + chalk.cyan.bold(`All Departments:`));
+      console.log(chalk.green.bold(`====================================================================================`));
       console.table(response);
-      console.log(chalk.yellow.bold(`====================================================================================`));
+      console.log(chalk.green.bold(`====================================================================================`));
       promptUser();
     });
   };
@@ -172,20 +172,20 @@ const viewAllEmployees = () => {
                     LEFT JOIN department ON role.department_id = department.id`;
     connection.query(sql, (error, response) => {
       if (error) throw error;
-        console.log(chalk.yellow.bold(`====================================================================================`));
-        console.log(`                              ` + chalk.green.bold(`Employees by Department:`));
-        console.log(chalk.yellow.bold(`====================================================================================`));
+        console.log(chalk.green.bold(`====================================================================================`));
+        console.log(`                              ` + chalk.cyan.bold(`Employees by Department:`));
+        console.log(chalk.green.bold(`====================================================================================`));
         console.table(response);
-        console.log(chalk.yellow.bold(`====================================================================================`));
+        console.log(chalk.green.bold(`====================================================================================`));
         promptUser();
       });
   };
   
   //View all Departments by Budget
   const viewDepartmentBudget = () => {
-    console.log(chalk.yellow.bold(`====================================================================================`));
-    console.log(`                              ` + chalk.green.bold(`Budget By Department:`));
-    console.log(chalk.yellow.bold(`====================================================================================`));
+    console.log(chalk.green.bold(`====================================================================================`));
+    console.log(`                              ` + chalk.cyan.bold(`Budget By Department:`));
+    console.log(chalk.green.bold(`====================================================================================`));
     const sql =     `SELECT department_id AS id, 
                     department.department_name AS department,
                     SUM(salary) AS budget
@@ -194,13 +194,12 @@ const viewAllEmployees = () => {
     connection.query(sql, (error, response) => {
       if (error) throw error;
         console.table(response);
-        console.log(chalk.yellow.bold(`====================================================================================`));
+        console.log(chalk.green.bold(`====================================================================================`));
         promptUser();
     });
   };
   
-  // --------------------------------------------------- ADD --------------------------------------------------------------------
-  
+
   // Add a New Employee
   const addEmployee = () => {
     inquirer.prompt([
