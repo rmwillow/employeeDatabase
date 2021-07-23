@@ -1,4 +1,4 @@
-# employeeDatabase
+# Employee Database
 
 Employee Database is a command-line application to manage a company's employee database, using Node.js, Inquirer, and MySQL. 
 
@@ -18,7 +18,7 @@ git installed on your computer.
 
 ## Installation
 Once project is installed/cloned install the packages below<br> 
-(hint: you can copy and paste all packages into terminal at once!)
+(hint: you can copy and paste all packages & paste into terminal at once!)
 
 npm i inquirer<br> 
 npm i console.table<br> 
